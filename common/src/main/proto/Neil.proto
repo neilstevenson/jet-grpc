@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "neil.demo";
+
+package neil.demo;
+
+service WordCount {
+    rpc myCall (InputMessage) returns (OutputMessage) {}
+    rpc myStreamingCall (stream InputMessage) returns (stream OutputMessage) {}
+}
+
+message InputMessage {
+    repeated string inputValue = 1;
+}
+message OutputMessage {
+    repeated string outputValue = 1;
+}
