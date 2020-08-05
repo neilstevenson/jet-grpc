@@ -21,8 +21,12 @@ public class Application {
         ManagedChannel managedChannel
             = MyUtils.getManagedChannelBuilder(MyConstants.MY_CALL, retry).build();
 
+        // Blocking, so not Async :=)
         WordCountBlockingStub wordCountBlockingStub =
             WordCountGrpc.newBlockingStub(managedChannel);
+        
+        int total = 0;
+        boolean exceptions = false;
 
         int batchSize = 1;
         for (int offSet = 0 ; offSet < MyConstants.HAMLET.length ; offSet += batchSize++) {
@@ -41,11 +45,24 @@ public class Application {
             try {
                 OutputMessage outputMessage = wordCountBlockingStub.myCall(inputMessage);
                 System.out.println(outputMessage);
+                
+                for (int j = 0; j < outputMessage.getOutputValueCount(); j++) {
+                    total += Integer.parseInt(outputMessage.getOutputValue(j));
+                }
             } catch (Exception e) {
+                exceptions = true;
                 e.printStackTrace(System.out);
             }
         }
         
         managedChannel.shutdown();
+
+        System.out.println("===");
+        System.out.println();
+        if (exceptions) {
+            System.out.println("Total: N/a due to call failures");
+        } else {
+            System.out.println("Total: " + total);
+        }
     }
 }

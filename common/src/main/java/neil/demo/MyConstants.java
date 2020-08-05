@@ -8,6 +8,9 @@ public class MyConstants {
     // Barf on every "n" calls
     public static final int FAIL_EVERY = 3;
     
+    // Jet batch maximum input size
+    public static final int JET_BATCH_SIZE = 2;
+
     // Must match names defined in common/src/main/proto/Neil.proto
     public static final String MY_CALL = "myCall";
     public static final String MY_STREAMING_CALL = "myStreamingCall";

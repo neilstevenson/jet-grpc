@@ -7,6 +7,15 @@ import io.grpc.ServerBuilder;
 public class Application {
 
     /**
+     * <p>We are trying to solve the problem when
+     * the gRPC server is overloaded by calls,
+     * which occurs when multi-threading isn't viable.
+     * </p>
+     */
+    private static final int MUST_BE_ONE = 1;
+
+
+    /**
      * <p>Create a gRPC server, single-threaded, that
      * has a service {@link WordCountImpl} implementing
      * {@code common/src/main/proto/Neil.proto}
@@ -16,7 +25,7 @@ public class Application {
      * @throws Exception Probably not thrown
      */
     public static void main(String[] args) throws Exception {
-        ForkJoinPool forkJoinPool = new ForkJoinPool(1);
+        ForkJoinPool forkJoinPool = new ForkJoinPool(MUST_BE_ONE);
         
         Server server = ServerBuilder
                 .forPort(MyConstants.GRPC_PORT)

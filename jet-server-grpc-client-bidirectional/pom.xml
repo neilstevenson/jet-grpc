@@ -9,7 +9,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>grpc-client-simple</artifactId>
+	<artifactId>jet-server-grpc-client-bidirectional</artifactId>
 
 	<dependencies>
 		<dependency>
