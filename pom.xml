@@ -13,9 +13,7 @@
 		<module>common</module>
 		<module>grpc-server</module>
 		<module>grpc-client-unary</module>
-		<!--
 		<module>grpc-client-bidirectional</module>
-		-->
 		<module>jet-server-grpc-client-unary</module>
 		<module>jet-server-grpc-client-bidirectional</module>
 	</modules>
