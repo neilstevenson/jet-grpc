@@ -65,7 +65,8 @@ public class Application {
          * from the server, but does retry.
          * 
          * If "offSet=31", sends three batches. It will get RESOURCE_EXHAUSTED but retry doesn't
-         * apear to work.
+         * appear to work. One call can be RETRIED multiple times, but multiple calls will not
+         * be retried.
          */
         for (int offSet = 31; offSet < MyConstants.HAMLET.length ; offSet += batchSize++) {
             

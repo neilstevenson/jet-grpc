@@ -48,6 +48,9 @@ public class MyUtils {
              managedChannelBuilder.defaultServiceConfig(serviceConfig);
 
              managedChannelBuilder.enableRetry();
+             
+             // https://grpc.github.io/grpc-java/javadoc/io/grpc/ManagedChannelBuilder.html#maxRetryAttempts-int-
+             managedChannelBuilder.maxRetryAttempts(30);
          }
 
         return managedChannelBuilder;
