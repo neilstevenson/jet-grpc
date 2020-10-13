@@ -1,8 +1,7 @@
 # jet-grpc
 Jet GRPC tester
 
-Experiments with handling "`RESOURCE_EXHAUSTED`" from gRPC server,
-when temporarily overloaded.
+Experiments with handling errors such as "`RESOURCE_EXHAUSTED`" from gRPC server.
 
 # Instructions
 
@@ -30,7 +29,6 @@ Bidirectional call. Calls `myStreamingCall` for larger and larger batches of inp
 
 ### `java -jar jet-server-grpc-client-unary/target/jet-server-grpc-client-unary-0.0.1-SNAPSHOT-jar-with-dependencies.jar`
 Unary call. Calls `myCall` for input of a fixed batch size.
-
 
 ### `java -jar jet-server-grpc-client-bidirectional/target/jet-server-grpc-client-bidirectional-0.0.1-SNAPSHOT-jar-with-dependencies.jar`
 Bidirectional call. Calls `myStreamingCall` for input of a fixed batch size.
